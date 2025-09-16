@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi hermosa novia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff6699;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .poem {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #fff0f5;
+            border-left: 5px solid #ff6699;
+            text-align: left;
+            border-radius: 8px;
+        }
+        .poem h3 {
+            color: #cc0066;
+        }
+        .poem p {
+            font-style: italic;
+        }
+        .poem .author {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>¡Hola, mi amor!</h1>
+        <p>
+            Gracias por estos 4 meses de risas, aventuras y mucho amor. 
+            Eres la persona más increíble que he conocido y no puedo esperar 
+            a ver qué nos depara el futuro. ¡Vamos por muchos años más juntos! 
+            Te amo con todo mi corazón. ❤️
+        </p>
+
+        <h2>Nuestros momentos favoritos</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <img src="URL_DE_TU_IMAGEN_1.jpg" alt="Imagen 1">
+                <img src="URL_DE_TU_IMAGEN_2.jpg" alt="Imagen 2">
+                <img src="URL_DE_TU_IMAGEN_3.jpg" alt="Imagen 3">
+            </div>
+        </div>
+
+        <script>
+            const carousel = document.querySelector('.carousel');
+            let currentIndex = 0;
+            const images = document.querySelectorAll('.carousel img');
+            const totalImages = images.length;
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }, 3000); // Cambia de imagen cada 3 segundos
+        </script>
+
+        <hr>
+
+        <h2>Poemas para ti</h2>
+        
+        <div class="poem">
+            <h3>Poema 1</h3>
+            <p>
+                "Puedo escribir los versos más tristes esta noche. <br>
+                Escribir, por ejemplo: «La noche está estrellada, <br>
+                y tiritan, azules, los astros, a lo lejos.»"
+            </p>
+            <span class="author">- Pablo Neruda</span>
+        </div>
+
+        <div class="poem">
+            <h3>Poema 2</h3>
+            <p>
+                "No me digas que el mundo es hermoso, <br>
+                dime que la vida es dulce, <br>
+                dime que tú me quieres."
+            </p>
+            <span class="author">- Alfonsina Storni</span>
+        </div>
+        
+        <div class="poem">
+            <h3>Poema 3</h3>
+            <p>
+                "Si la luna fuera de queso, <br>
+                y el sol, de pan tostado, <br>
+                el mundo entero sería <br>
+                un banquete para enamorados."
+            </p>
+            <span class="author">- Mario Benedetti</span>
+        </div>
+
+        <div class="poem">
+            <h3>Poema 4</h3>
+            <p>
+                "Me gustas cuando callas porque estás como ausente, <br>
+                y me oyes desde lejos, y mi voz no te toca."
+            </p>
+            <span class="author">- Pablo Neruda</span>
+        </div>
+
+        <div class="poem">
+            <h3>Poema 5</h3>
+            <p>
+                "Es tan corto el amor y es tan largo el olvido."
+            </p>
+            <span class="author">- Pablo Neruda</span>
+        </div>
+
+        <div class="poem">
+            <h3>Poema 6</h3>
+            <p>
+                "Caminando con la luna, <br>
+                yo me encuentro con un duende, <br>
+                y el duende me dice: 'Amigo, <br>
+                si la amas, no la pierdas'."
+            </p>
+            <span class="author">- Gustavo Adolfo Bécquer</span>
+        </div>
+
+        <div class="poem">
+            <h3>Poema 7</h3>
+            <p>
+                "Un beso es una pregunta cuya respuesta es otro beso."
+            </p>
+            <span class="author">- Ramón de Campoamor</span>
+        </div>
+
+        <div class="poem">
+            <h3>Poema 8</h3>
+            <p>
+                "El amor es un acto de perdón infinito, <br>
+                una tierna mirada que se vuelve hábito."
+            </p>
+            <span class="author">- Erich Fromm</span>
+        </div>
+
+        <div class="poem">
+            <h3>Poema 9</h3>
+            <p>
+                "Te quiero no por quién eres, sino por quién soy yo cuando estoy contigo."
+            </p>
+            <span class="author">- Gabriel García Márquez</span>
+        </div>
+
+        <div class="poem">
+            <h3>Poema 10</h3>
+            <p>
+                "Si nada nos salva de la muerte, <br>
+                al menos que el amor nos salve de la vida."
+            </p>
+            <span class="author">- Pablo Neruda</span>
+        </div>
+        
+        <footer>
+            <p>Hecho con mucho amor por tu novio.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
