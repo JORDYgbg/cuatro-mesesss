@@ -3,203 +3,690 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi hermosa novia</title>
+    <title>Para mi amor ❤️ - 4 meses juntos</title>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffe6e6;
-            color: #333;
-            text-align: center;
+        /* Reset y estilos base */
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background-color: #fff;
-            padding: 20px;
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            background: #d0e4f7; /* Color base de cielo claro */
+        }
+
+        /* Fondo de cielo con gradiente */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #d0e4f7, #a8c0d8); /* Gradiente de cielo */
+            z-index: -3;
+        }
+
+        /* Nubes (CSS original) */
+        .clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: moveClouds 60s linear infinite;
+        }
+        .cloud:nth-child(1) { width: 150px; height: 50px; top: 10%; left: -20%; animation-duration: 70s; }
+        .cloud:nth-child(2) { width: 200px; height: 70px; top: 30%; left: -30%; animation-duration: 80s; animation-delay: 10s; }
+        .cloud:nth-child(3) { width: 100px; height: 40px; top: 50%; left: -10%; animation-duration: 65s; animation-delay: 20s; }
+        .cloud:nth-child(4) { width: 180px; height: 60px; top: 70%; left: -25%; animation-duration: 75s; animation-delay: 30s; }
+        .cloud:nth-child(5) { width: 120px; height: 45px; top: 20%; left: -15%; animation-duration: 68s; animation-delay: 5s; }
+
+        @keyframes moveClouds {
+            0% { transform: translateX(0) scale(1); }
+            100% { transform: translateX(120vw) scale(1.1); }
+        }
+
+        /* Lluvia */
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .rain-drop {
+            position: absolute;
+            background: rgba(173, 216, 230, 0.7); /* Azul claro transparente */
+            width: 1px;
+            height: 15px;
+            animation: fall 1.5s linear infinite;
+            transform-origin: 50% 100%;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100%) translateX(0) rotate(5deg); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(100vh) translateX(50px) rotate(5deg); opacity: 0; }
+        }
+
+        /* Estrellas y Corazones */
+        .stars, .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .star {
+            position: absolute;
+            width: 1.5px;
+            height: 1.5px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 4s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.6; }
+        }
+        .heart {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ff8a80;
+            transform: rotate(45deg);
+            opacity: 0;
+            animation: float 12s infinite ease-out forwards;
+        }
+        .heart::before, .heart::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #ff8a80;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before { top: -4px; left: 0; }
+        .heart::after { left: 4px; top: 0; }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(45deg) scale(0); opacity: 0; }
+            10% { opacity: 0.1; transform: translateY(90vh) rotate(45deg) scale(0.5); }
+            100% { transform: translateY(-10vh) rotate(45deg) scale(1); opacity: 0.05; }
+        }
+
+        /* Contenedores de contenido (secciones) */
+        .content-section {
+            width: 90%;
+            max-width: 900px; /* Aumentado para más espacio */
+            margin: 2rem auto; /* Más margen para aireado */
+            padding: 2.5rem; /* Más padding para comodidad */
+            background: rgba(240, 248, 255, 0.85); /* Mayor opacidad para legibilidad */
+            backdrop-filter: blur(15px);
+            border-radius: 25px; /* Bordes más redondeados */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1s ease-out forwards;
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header */
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem; /* Ligeramente más grande */
+            color: #4a148c;
+            margin-bottom: 1.2rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        header p {
+            font-size: 1.2rem; /* Mayor tamaño */
+            line-height: 1.8; /* Más interlineado */
+            color: #4a4a4a;
+            max-width: 700px;
+            margin: 1rem auto;
+        }
+
+        /* Sección de Canciones */
+        .songs h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem; /* Mayor tamaño */
+            color: #6a1b9a;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .song-item {
+            margin-bottom: 2rem;
+            padding: 2rem; /* Más padding */
+            background: rgba(255, 255, 255, 0.9); /* Fondo más claro */
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            text-align: left;
         }
-        h1 {
-            color: #ff6699;
+        .song-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(240, 248, 255, 1);
         }
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
+        .song-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; /* Mayor tamaño */
+            color: #4a148c;
+            margin-bottom: 1rem;
         }
-        .carousel-container {
+        .song-item p {
+            font-size: 1.1rem; /* Mayor tamaño */
+            line-height: 1.8; /* Más interlineado */
+            color: #333;
+        }
+        .song-item .author {
+            font-style: italic;
+            color: #6a6a6a;
+            margin-top: 1.2rem;
+            display: block;
+            text-align: right;
+            font-size: 1rem;
+        }
+        .song-item a {
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.6rem; /* Botón más grande */
+            background: #6a1b9a;
+            color: #fff;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            text-decoration: none;
+        }
+        .song-item a:hover {
+            background: #4a148c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            opacity: 0.9;
+        }
+
+        /* Carrusel de poemas */
+        .carousel {
+            position: relative;
+            margin-top: 3rem;
+            min-height: 450px; /* Aumentado para más espacio */
+            transition: height 0.5s ease-in-out;
+        }
+        .carousel h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: #4a148c;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .carousel-inner {
+            position: relative;
             width: 100%;
             overflow: hidden;
-            position: relative;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: linear-gradient(to bottom, rgba(240, 248, 255, 0.9), rgba(255, 255, 255, 0.95)); /* Fondo degradado */
+            backdrop-filter: blur(12px);
+            transition: height 0.5s ease-in-out;
         }
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel img {
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            padding: 3.5rem; /* Más padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            text-align: center;
         }
-        .poem {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: #fff0f5;
-            border-left: 5px solid #ff6699;
-            text-align: left;
-            border-radius: 8px;
+        .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
         }
-        .poem h3 {
-            color: #cc0066;
+        .carousel-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem; /* Mayor tamaño */
+            color: #4a148c;
+            margin-bottom: 1.2rem;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
         }
-        .poem p {
+        .carousel-item p {
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 1.2rem; /* Mayor tamaño */
+            line-height: 2; /* Más interlineado */
+            color: #3a3a3a;
+            margin-bottom: 1.8rem;
+            max-height: none;
+            overflow-y: visible;
+            padding: 0 20px;
+            text-shadow: 0.5px 0.5px 1px rgba(255,255,255,0.5);
+        }
+        .carousel-item .author {
+            font-family: 'Playfair Display', serif;
             font-style: italic;
-        }
-        .poem .author {
-            font-weight: bold;
-            text-align: right;
-            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #6a6a6a;
+            margin-top: 1.5rem;
             display: block;
+        }
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.2);
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .carousel-controls button:hover {
+            background: rgba(106, 27, 154, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .carousel-controls button:first-child { left: 15px; }
+        .carousel-controls button:last-child { right: 15px; }
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+        .carousel-dots .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+        .carousel-dots .dot.active {
+            background: #6a1b9a;
+            transform: scale(1.3);
+            border-color: #6a1b9a;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background: rgba(240, 248, 255, 0.85); /* Mayor opacidad */
+            backdrop-filter: blur(15px);
+            margin-top: 2.5rem;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        footer p {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 768px) {
+            .content-section { padding: 2rem; margin: 1.5rem auto; }
+            header h1 { font-size: 2.8rem; }
+            header p { font-size: 1.1rem; line-height: 1.7; }
+            .songs h2, .carousel h2 { font-size: 2.1rem; }
+            .song-item { padding: 1.8rem; }
+            .song-item h3 { font-size: 1.6rem; }
+            .song-item p, .carousel-item p { font-size: 1.05rem; line-height: 1.7; }
+            .carousel { min-height: 400px; }
+            .carousel-item { padding: 3rem 2rem; }
+            .carousel-item h3 { font-size: 2rem; }
+            .carousel-controls button { font-size: 1.6rem; padding: 0.8rem; }
+            .cloud { animation-duration: 40s !important; }
+        }
+        @media (max-width: 480px) {
+            .content-section { padding: 1.5rem; margin: 1rem auto; }
+            header h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+            header p { font-size: 0.95rem; line-height: 1.6; margin: 0.8rem auto; }
+            .songs h2, .carousel h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+            .song-item { padding: 1.5rem; margin-bottom: 1.5rem; }
+            .song-item h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+            .song-item p { font-size: 0.9rem; line-height: 1.6; }
+            .song-item .author { font-size: 0.9rem; margin-top: 1rem; }
+            .song-item a { font-size: 0.9rem; padding: 0.7rem 1.2rem; margin-top: 1.2rem; }
+            .carousel { min-height: 350px; }
+            .carousel-inner { height: auto; }
+            .carousel-item { padding: 2.5rem 1.5rem; }
+            .carousel-item h3 { font-size: 1.8rem; }
+            .carousel-item p { font-size: 1rem; line-height: 1.8; }
+            .carousel-controls button { font-size: 1.4rem; padding: 0.7rem; }
+            .carousel-dots .dot { width: 10px; height: 10px; margin: 0 6px; }
+            .cloud { animation-duration: 30s !important; }
         }
     </style>
 </head>
 <body>
+    <div class="clouds">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+    <div class="rain" id="rain"></div>
+    <div class="hearts" id="hearts"></div>
+    <div class="stars" id="stars"></div>
 
-    <div class="container">
-        <h1>¡Hola, mi amor!</h1>
+    <header class="content-section">
+        <h1>Gracias por seguir.</h1>
         <p>
-            Gracias por estos 4 meses de risas, aventuras y mucho amor. 
-            Eres la persona más increíble que he conocido y no puedo esperar 
-            a ver qué nos depara el futuro. ¡Vamos por muchos años más juntos! 
-            Te amo con todo mi corazón. ❤️
+            Mi amor, gracias por soportarme con mi esquizofrenia y chistes de dudosa procedencia. Estos 4 meses contigo han sido un sueño virtual, ansío que en un futuro no tan lejano nos podamos ver y así cumplamos todo lo que queremos juntos.
         </p>
+    </header>
 
-        <h2>Nuestros momentos favoritos</h2>
-        <div class="carousel-container">
-            <div class="carousel">
-                <img src="URL_DE_TU_IMAGEN_1.jpg" alt="Imagen 1">
-                <img src="URL_DE_TU_IMAGEN_2.jpg" alt="Imagen 2">
-                <img src="URL_DE_TU_IMAGEN_3.jpg" alt="Imagen 3">
-            </div>
-        </div>
-
-        <script>
-            const carousel = document.querySelector('.carousel');
-            let currentIndex = 0;
-            const images = document.querySelectorAll('.carousel img');
-            const totalImages = images.length;
-
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % totalImages;
-                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }, 3000); // Cambia de imagen cada 3 segundos
-        </script>
-
-        <hr>
-
-        <h2>Poemas para ti</h2>
-        
-        <div class="poem">
-            <h3>Poema 1</h3>
+    <div class="songs content-section">
+        <h2>Canciones que cantan mi amor</h2>
+        <div class="song-item">
+            <h3>Contigo en la Distancia</h3>
             <p>
-                "Puedo escribir los versos más tristes esta noche. <br>
-                Escribir, por ejemplo: «La noche está estrellada, <br>
-                y tiritan, azules, los astros, a lo lejos.»"
+                No existe un momento del día<br>
+                en que pueda apartarte de mí.<br>
+                El mundo parece distinto<br>
+                cuando no estás junto a mí.
             </p>
-            <span class="author">- Pablo Neruda</span>
+            <p class="author">— Luis Miguel</p>
+            <a href="https://open.spotify.com/intl-es/track/03oCjV73Utu9KpXrgcqoTJ?si=e258c75828d44fa5" target="_blank">Escuchar en Spotify</a>
         </div>
-
-        <div class="poem">
-            <h3>Poema 2</h3>
+        <div class="song-item">
+            <h3>Burbujas de Amor</h3>
             <p>
-                "No me digas que el mundo es hermoso, <br>
-                dime que la vida es dulce, <br>
-                dime que tú me quieres."
+                Quisiera ser un pez para<br>
+                tocar mi nariz en tu pecera<br>
+                y hacer burbujas de amor<br>
+                por dondequiera.
             </p>
-            <span class="author">- Alfonsina Storni</span>
+            <p class="author">— Juan Luis Guerra</p>
+            <a href="https://open.spotify.com/intl-es/track/0UoAcG1vxtFjes7rZz8Js0?si=085251885c7641ea" target="_blank">Escuchar en Spotify</a>
         </div>
-        
-        <div class="poem">
-            <h3>Poema 3</h3>
+        <div class="song-item">
+            <h3>Te Amaré</h3>
             <p>
-                "Si la luna fuera de queso, <br>
-                y el sol, de pan tostado, <br>
-                el mundo entero sería <br>
-                un banquete para enamorados."
+                Te amaré, te amaré, como no está permitido,<br>
+                te amaré, te amaré, como nunca se ha sabido.
             </p>
-            <span class="author">- Mario Benedetti</span>
+            <p class="author">— Miguel Bosé</p>
+            <a href="https://open.spotify.com/intl-es/track/3PFyeq4aBtLfShPJ9oiK4p?si=7bfca02e65244c14" target="_blank">Escuchar en Spotify</a>
         </div>
-
-        <div class="poem">
-            <h3>Poema 4</h3>
+        <div class="song-item">
+            <h3>Amor Eterno</h3>
             <p>
-                "Me gustas cuando callas porque estás como ausente, <br>
-                y me oyes desde lejos, y mi voz no te toca."
+                Obligo a que te olvide el pensamiento,<br>
+                pues siempre estoy pensando en el ayer;<br>
+                prefiero estar dormido que despierto,<br>
+                de tanto y tanto que me duele que no estés.
             </p>
-            <span class="author">- Pablo Neruda</span>
+            <p class="author">— Juan Gabriel</p>
+            <a href="https://open.spotify.com/intl-es/track/2TC4v9YiuQYk3Tk8RH7fV4?si=af45789c0bfd43db" target="_blank">Escuchar en Spotify</a>
         </div>
-
-        <div class="poem">
-            <h3>Poema 5</h3>
+        <div class="song-item">
+            <h3>La Gloria Eres Tú</h3>
             <p>
-                "Es tan corto el amor y es tan largo el olvido."
+                Bendito Dios, porque al tenerte yo en vida,<br>
+                no necesito ir al cielo,<br>
+                si alma mía, la gloria eres tú.
             </p>
-            <span class="author">- Pablo Neruda</span>
+            <p class="author">— Luis Miguel</p>
+            <a href="https://open.spotify.com/intl-es/track/5SPUsNcUtRUpAPj7rJq7CD?si=ea88306fa9a44b46" target="_blank">Escuchar en Spotify</a>
         </div>
-
-        <div class="poem">
-            <h3>Poema 6</h3>
-            <p>
-                "Caminando con la luna, <br>
-                yo me encuentro con un duende, <br>
-                y el duende me dice: 'Amigo, <br>
-                si la amas, no la pierdas'."
-            </p>
-            <span class="author">- Gustavo Adolfo Bécquer</span>
-        </div>
-
-        <div class="poem">
-            <h3>Poema 7</h3>
-            <p>
-                "Un beso es una pregunta cuya respuesta es otro beso."
-            </p>
-            <span class="author">- Ramón de Campoamor</span>
-        </div>
-
-        <div class="poem">
-            <h3>Poema 8</h3>
-            <p>
-                "El amor es un acto de perdón infinito, <br>
-                una tierna mirada que se vuelve hábito."
-            </p>
-            <span class="author">- Erich Fromm</span>
-        </div>
-
-        <div class="poem">
-            <h3>Poema 9</h3>
-            <p>
-                "Te quiero no por quién eres, sino por quién soy yo cuando estoy contigo."
-            </p>
-            <span class="author">- Gabriel García Márquez</span>
-        </div>
-
-        <div class="poem">
-            <h3>Poema 10</h3>
-            <p>
-                "Si nada nos salva de la muerte, <br>
-                al menos que el amor nos salve de la vida."
-            </p>
-            <span class="author">- Pablo Neruda</span>
-        </div>
-        
-        <footer>
-            <p>Hecho con mucho amor por tu novio.</p>
-        </footer>
     </div>
 
+    <div class="carousel content-section">
+        <h2>Poemas que susurran mi amor</h2>
+        <div class="carousel-inner" id="carouselInner">
+            <div class="carousel-item active">
+                <h3>Amor Eterno</h3>
+                <p>
+                    Podrá nublarse el sol eternamente;<br>
+                    podrá secarse en un instante el mar;<br>
+                    podrá romperse el eje de la tierra<br>
+                    como un débil cristal.<br>
+                    ¡Todo sucederá! Podrá la muerte<br>
+                    cubrirme con su fúnebre crespón;<br>
+                    pero jamás en mí podrá apagarse<br>
+                    la llama de tu amor.
+                </p>
+                <p class="author">— Gustavo Adolfo Bécquer</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Soneto XVII</h3>
+                <p>
+                    No te amo como si fueras rosa de sal, topacio<br>
+                    o flecha de claveles que propagan el fuego:<br>
+                    te amo como se aman ciertas cosas oscuras,<br>
+                    secretamente, entre la sombra y el alma.<br>
+                    Te amo sin saber cómo, ni cuándo, ni de dónde,<br>
+                    te amo directamente sin problemas ni orgullo:<br>
+                    así te amo porque no sé amar de otra manera.
+                </p>
+                <p class="author">— Pablo Neruda</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Táctica y Estrategia</h3>
+                <p>
+                    Mi táctica es mirarte<br>
+                    aprender como sos<br>
+                    quererte como sos.<br><br>
+                    Mi táctica es hablarte<br>
+                    y escucharte<br>
+                    construir con palabras<br>
+                    un puente indestructible.<br><br>
+                    Mi táctica es<br>
+                    que te quedes en mi recuerdo<br>
+                    no sé cómo ni sé<br>
+                    con qué pretexto<br>
+                    pero quedarte en mí.
+                </p>
+                <p class="author">— Mario Benedetti</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Annabel Lee</h3>
+                <p>
+                    Fue hace muchos, muchos años,<br>
+                    en un reino junto al mar,<br>
+                    que una virgen vivía allí, a quien<br>
+                    conocí por Annabel Lee;<br>
+                    y esta virgen no vivía con otro pensamiento<br>
+                    que el de amarme y ser amada por mí.<br><br>
+                    Yo era un niño y ella era una niña,<br>
+                    en este reino junto al mar,<br>
+                    pero nos amábamos con un amor que era más que amor—<br>
+                    yo y mi Annabel Lee—<br>
+                    con un amor que los alados serafines del cielo<br>
+                    codiciaban de ella y de mí.
+                </p>
+                <p class="author">— Edgar Allan Poe</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Preámbulo a las instrucciones para dar cuerda al reloj</h3>
+                <p>
+                    Piensa en esto: cuando te regalan un reloj te regalan<br>
+                    un pequeño infierno florido, una cadena de rosas,<br>
+                    un calabozo de aire. No te dan solamente el reloj,<br>
+                    que los cumplas muy felices y esperamos que te dure,<br>
+                    a veces estúpidamente largo, inesperadamente frágil,<br>
+                    dulce y tan bello. Te regalan la necesidad de que te lo pongan.<br>
+                    No te dan un regalo, te dan una cita.
+                </p>
+                <p class="author">— Julio Cortázar</p>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button onclick="moveCarousel(-1)">❮</button>
+            <button onclick="moveCarousel(1)">❯</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <footer class="content-section">
+        <p>Hecho con amor para ti, mi vida ❤️</p>
+    </footer>
+
+    <script>
+        // Funciones del Carrusel
+        let currentIndex = 0;
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const totalItems = carouselItems.length;
+        const dotsContainer = document.getElementById('carouselDots');
+        const carouselInner = document.getElementById('carouselInner');
+        const carouselContainer = document.querySelector('.carousel');
+        let autoSlideInterval;
+
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalItems; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                    resetAutoSlide();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function moveCarousel(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = totalItems - 1;
+            if (currentIndex >= totalItems) currentIndex = 0;
+            updateCarousel();
+            resetAutoSlide();
+        }
+
+        function updateCarousel() {
+            carouselItems.forEach(item => item.classList.remove('active'));
+            const activeItem = carouselItems[currentIndex];
+            activeItem.classList.add('active');
+            setTimeout(() => {
+                carouselInner.style.height = `${activeItem.offsetHeight}px`;
+                carouselContainer.style.height = `${activeItem.offsetHeight + 100}px`;
+            }, 50);
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                moveCarousel(1);
+            }, 7000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        window.addEventListener('load', () => {
+            createDots();
+            updateCarousel();
+            startAutoSlide();
+        });
+        window.addEventListener('resize', updateCarousel);
+
+        // Funciones de Lluvia
+        const rainContainer = document.getElementById('rain');
+        const numRaindrops = 80;
+
+        function createRaindrop() {
+            const drop = document.createElement('div');
+            drop.classList.add('rain-drop');
+            drop.style.left = `${Math.random() * 100}vw`;
+            drop.style.animationDelay = `${Math.random() * -1.5}s`;
+            drop.style.animationDuration = `${Math.random() * 0.8 + 1.2}s`;
+            rainContainer.appendChild(drop);
+            setTimeout(() => drop.remove(), parseFloat(drop.style.animationDuration) * 1000 + parseFloat(drop.style.animationDelay) * 1000 + 100);
+        }
+
+        for (let i = 0; i < numRaindrops; i++) {
+            createRaindrop();
+        }
+        setInterval(createRaindrop, 100);
+
+        // Corazones flotantes
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 8 + 8}s`;
+            heart.style.animationDelay = `${Math.random() * 0.5}s`;
+            heart.style.opacity = Math.random() * 0.1 + 0.05;
+            heart.style.transform = `scale(${Math.random() * 0.6 + 0.2}) rotate(45deg)`;
+            document.getElementById('hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), parseFloat(heart.style.animationDuration) * 1000);
+        }
+        for (let i = 0; i < 15; i++) {
+            createHeart();
+        }
+        setInterval(createHeart, 3000);
+
+        // Estrellas parpadeantes
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDuration = `${Math.random() * 2 + 3}s`;
+            star.style.animationDelay = `${Math.random() * 1}s`;
+            document.getElementById('stars').appendChild(star);
+            setTimeout(() => star.remove(), parseFloat(star.style.animationDuration) * 1000);
+        }
+        for (let i = 0; i < 30; i++) {
+            createStar();
+        }
+        setInterval(createStar, 1000);
+    </script>
 </body>
 </html>
